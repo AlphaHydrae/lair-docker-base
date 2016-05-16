@@ -1,7 +1,14 @@
 FROM ruby:2.2
 
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y postgresql-client --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get install -y \
+       nodejs \
+       postgresql-client \
+       python-setuptools python-dev build-essential \
+       --no-install-recommends \
+    && easy_install supervisor \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
