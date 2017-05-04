@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.8'
 
 # Database
 gem 'pg'
@@ -41,6 +41,7 @@ gem 'library_stdnums'
 
 # Data
 gem 'ox'
+gem 'nokogiri'
 
 # API & Services
 gem 'jwt'
@@ -69,7 +70,8 @@ group :development, :test do
   # Solve http://mislav.net/2013/07/ruby-openssl/
   gem 'certified'
 
-  gem 'capistrano'
+  gem 'sshkit'
+  gem 'highline'
   gem 'handlebars'
   gem 'dotenv-rails'
 
