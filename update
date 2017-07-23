@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+gemfile="$1"
+test -z "$gemfile" && gemfile="../lair-backend/Gemfile"
+
+gemfile_lock="$2"
+test -z "$gemfile_lock" && gemfile_lock="$gemfile.lock"
+
+if ! test -f "$gemfile"; then
+  >&2 echo $gemfile does not exist
+elif ! test -f "$gemfile_lock"; then
+  >&2 echo $gemfile_lock does not exist
+fi
+
+cp "$gemfile" .
+cp "$gemfile_lock" .
